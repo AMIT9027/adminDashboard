@@ -115,7 +115,7 @@ const ChartSection = () => {
                 <ShoppingCartOutlined />
               </NotificationIcon>
               <Demographic>
-                <Name>Varun Patel</Name>
+                <Name>Amit Shah</Name>
               </Demographic>
             </DetailSection>
             <CloseCircleOutlined style={CloseStyles} />
@@ -126,7 +126,7 @@ const ChartSection = () => {
                 <ShoppingCartOutlined />
               </NotificationIcon>
               <Demographic>
-                <Name>Varun Patel</Name>
+                <Name>Amit Shah</Name>
               </Demographic>
             </DetailSection>
             <CloseCircleOutlined style={CloseStyles} />
@@ -137,7 +137,7 @@ const ChartSection = () => {
                 <ShoppingCartOutlined />
               </NotificationIcon>
               <Demographic>
-                <Name>Varun Patel</Name>
+                <Name>Amit Shah</Name>
               </Demographic>
             </DetailSection>
             <CloseCircleOutlined style={CloseStyles} />
@@ -148,7 +148,7 @@ const ChartSection = () => {
                 <ShoppingCartOutlined />
               </NotificationIcon>
               <Demographic>
-                <Name>Varun Patel</Name>
+                <Name>Amit Shah</Name>
               </Demographic>
             </DetailSection>
             <CloseCircleOutlined style={CloseStyles} />
@@ -159,7 +159,7 @@ const ChartSection = () => {
                 <ShoppingCartOutlined />
               </NotificationIcon>
               <Demographic>
-                <Name>Varun Patel</Name>
+                <Name>Amit Shah</Name>
               </Demographic>
             </DetailSection>
             <CloseCircleOutlined style={CloseStyles} />
@@ -170,7 +170,7 @@ const ChartSection = () => {
                 <ShoppingCartOutlined />
               </NotificationIcon>
               <Demographic>
-                <Name>Varun Patel</Name>
+                <Name>Amit Shah</Name>
               </Demographic>
             </DetailSection>
             <CloseCircleOutlined style={CloseStyles} />
@@ -181,7 +181,7 @@ const ChartSection = () => {
                 <ShoppingCartOutlined />
               </NotificationIcon>
               <Demographic>
-                <Name>Varun Patel</Name>
+                <Name>Amit Shah</Name>
               </Demographic>
             </DetailSection>
             <CloseCircleOutlined style={CloseStyles} />
