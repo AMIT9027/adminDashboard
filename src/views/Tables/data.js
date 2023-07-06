@@ -5,31 +5,31 @@ export const userData = [
   {
     key: "1",
     img: profile,
-    name: "Varun Patel",
+    name: "Amit Shah",
     designation: "Just Developer",
   },
   {
     key: "2",
     img: profile,
-    name: "Varun Patel",
+    name: "Amit Shah",
     designation: "Just Developer",
   },
   {
     key: "3",
     img: profile,
-    name: "Varun Patel",
+    name: "Amit Shah",
     designation: "Just Developer",
   },
   {
     key: "4",
     img: profile,
-    name: "Varun Patel",
+    name: "Amit Shah",
     designation: "Just Developer",
   },
   {
     key: "5",
     img: profile,
-    name: "Varun Patel",
+    name: "Amit Shah",
     designation: "Just Developer",
   },
 ];
