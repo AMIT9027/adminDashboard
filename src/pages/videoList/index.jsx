@@ -1,28 +1,32 @@
-
-
-import React from 'react'
-import TableList from '../../components/Table'
-import { VideoJson } from '../../json/video'
-import { Button } from 'antd'
-import {DeleteOutlined} from "@ant-design/icons"
+import React from "react";
+import TableList from "../../components/Table";
+import { VideoJson } from "../../json/video";
+import { Button } from "antd";
+import { DeleteOutlined } from "@ant-design/icons";
 
 const VideoList = () => {
-
-    const Actions = [
-        {
+  const Actions = [
+    {
       title: "Action",
       key: "action",
       render: () => (
         <div>
-          <Button icon={<DeleteOutlined style={{color:"red"}}/>}>Delete</Button>
+          <Button icon={<DeleteOutlined />} danger>
+            Delete
+          </Button>
         </div>
       ),
     },
-    ]
+  ];
 
   return (
-    <TableList title="Video List" data={VideoJson.dataSource} columns={VideoJson.columns} actions={Actions} />
-  )
-}
+    <TableList
+      title="Video List"
+      data={VideoJson.dataSource}
+      columns={VideoJson.columns}
+      actions={Actions}
+    />
+  );
+};
 
-export default VideoList
+export default VideoList;

@@ -1,8 +1,8 @@
 import React from "react";
 import TableList from "../../components/Table";
 import { UserJson } from "../../json/user";
-import { Button, Switch } from "antd";
-import {PlusCircleOutlined } from "@ant-design/icons"
+import { Button, Space, Switch } from "antd";
+import { DeleteOutlined, PlusCircleOutlined } from "@ant-design/icons";
 const UserList = () => {
   const Actions = [
     {
@@ -10,7 +10,7 @@ const UserList = () => {
       key: "mentor",
       render: () => (
         <>
-          <Switch   defaultChecked />
+          <Switch defaultChecked />
         </>
       ),
     },
@@ -18,9 +18,11 @@ const UserList = () => {
       title: "Action",
       key: "action",
       render: () => (
-        <div>
-          <p>Delete</p>
-        </div>
+        <Space size={"middle"}>
+          <Button icon={<DeleteOutlined />} danger>
+            Delete
+          </Button>
+        </Space>
       ),
     },
   ];
