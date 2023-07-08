@@ -13,4 +13,9 @@ export const DashboardWrap = styled.div`
   flex-direction: column;
   gap: 20px;
   padding: 15px;
+  .ant-btn{
+    width: 100%;
+    max-width: 100px;
+    
+  }
 `;
