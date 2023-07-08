@@ -1,3 +1,4 @@
+import AddCourses from "./pages/AddCourses";
 import Dashboard from "./pages/Dashboard";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import UserList from "./pages/userList";
