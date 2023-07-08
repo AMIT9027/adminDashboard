@@ -6,6 +6,7 @@ import VideoList from "./pages/videoList";
 import CourseList from "./pages/courseList";
 import GraphPage from "./pages/GraphPage";
 import Login from "./pages/Login";
+import OrderList from "./pages/OrderList";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/course-list" element={<CourseList />} />
           <Route path="/video-list" element={<VideoList />} />
           <Route path="/document-list" element={<DocumentList />} />
+          <Route path="/order-list" element={<OrderList />} />
           <Route path="/metrics" element={<GraphPage />} />
           <Route path="/login" element={<Login />} />
         </Routes>
