@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { Button, Card } from "antd";
+
+import React, {useState} from "react"
+import { Card } from "antd";
 import { orderData, userData } from "../../views/Tables/data";
 import {
   Demographic,
@@ -18,6 +21,7 @@ import { CardWrap } from "../../styles/Dashboard/TableAnalytics";
 import { Link } from "react-router-dom";
 
 const TableAnalytics = () => {
+  
   const [clicked, setClick] = useState(0);
   const handleClick = () => {
     setClick(!clicked);
@@ -57,6 +61,7 @@ const TableAnalytics = () => {
         extra={<Button href="/order-list">View</Button>}
         style={OrderStyles}
       >
+      <Card title="Orders"  extra={<Button>View</Button> } style={OrderStyles}>
         <CardWrap>
           {orderData.map((item) => (
             <Profile key={item.key}>

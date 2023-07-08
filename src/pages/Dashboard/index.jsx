@@ -3,6 +3,7 @@ import CalendarSection from "../../views/Calendar";
 import ChartSection from "../../views/ChartSection";
 import TableAnalytics from "../../views/Tables";
 import { Container, DashboardWrap } from "../../styles/Dashboard";
+import ModalSection from "../../components/Modal";
 const Dashboard = () => {
   return (
     <Container>
@@ -11,6 +12,7 @@ const Dashboard = () => {
         <ChartSection />
         <TableAnalytics />
         <CalendarSection />
+        <ModalSection />
       </DashboardWrap>
     </Container>
   );

@@ -45,9 +45,12 @@ export const Follow = styled.a`
   border-radius: 7px;
   text-decoration: none;
   color: #e69222;
+<<<<<<< HEAD
+=======
   width: 100%;
   max-width: 60px;
   text-align: center;
+>>>>>>> 865cbc288d66617cabb6946845bd9c49629eba5a
 
   &:hover {
     background: #e69222;
@@ -94,6 +97,8 @@ export const Designation = styled.p`
   font: normal normal 400 13px "Lexend", sans-serif;
   color: gray;
 `;
+<<<<<<< HEAD
+=======
 
 export const Button = styled.button`
   font: normal normal 400 13px "Lexend", sans-serif;
@@ -126,3 +131,4 @@ export const ButtonWrapper = styled.div`
   width: 100%;
   min-width: 160px;
 `;
+>>>>>>> 865cbc288d66617cabb6946845bd9c49629eba5a
