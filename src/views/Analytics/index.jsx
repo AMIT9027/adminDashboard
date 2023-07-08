@@ -4,10 +4,10 @@ import { CardSection } from "../../styles/Dashboard/Analytics";
 
 const Analytics = () => (
   <CardSection>
-    <AnalyticsCard />
-    <AnalyticsCard />
-    <AnalyticsCard />
-    <AnalyticsCard />
+    <AnalyticsCard title="Total Profit" path="/metrics" />
+    <AnalyticsCard title="Total User" path="/user-list" />
+    <AnalyticsCard title="Total Courses" path="/course-list" />
+    <AnalyticsCard title="Total Videos" path="/video-list" />
   </CardSection>
 );
 

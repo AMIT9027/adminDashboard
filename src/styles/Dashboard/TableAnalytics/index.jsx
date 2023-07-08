@@ -118,7 +118,7 @@ export const Button = styled.button`
 export const ButtonWrapper = styled.div`
   font: normal normal 400 13px "Lexend", sans-serif;
   display: flex;
-  flex-direction:row;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 20px;

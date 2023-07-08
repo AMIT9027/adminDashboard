@@ -12,7 +12,6 @@ const CourseList = () => {
       render: () => (
         <Space size={"middle"}>
           <Button icon={<EditOutlined />}>Update</Button>
-          <Button icon={<EyeOutlined />}>View</Button>
           <Button icon={<DeleteOutlined />} danger>
             Delete
           </Button>

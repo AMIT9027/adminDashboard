@@ -11,18 +11,20 @@ import {
   TitleSection,
   TopInfo,
 } from "../../styles/Dashboard/AnalyticsCard";
+import { useNavigate } from "react-router-dom";
 
-const AnalyticsCard = () => {
+const AnalyticsCard = ({ title, path }) => {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
   return (
-    <Card style={CardStyles}>
+    <Card style={CardStyles} onClick={() => navigate(path)}>
       <Skeleton loading={loading} active>
         <CardWrap>
           <TopInfo>
             <TitleSection>
               {" "}
-              <Title>Total Frofit</Title>
+              <Title>{title}</Title>
               <SubTitle>All Customs Value</SubTitle>
             </TitleSection>
             <Count>$18M</Count>
