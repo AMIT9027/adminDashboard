@@ -10,6 +10,7 @@ import {
   paymentstYearData,
 } from "./Data";
 import { Container, Wrapper } from "../../styles/Graph/GraphSection";
+import { Button } from "antd";
 
 export const GraphSection = () => {
   return (
@@ -21,12 +22,14 @@ export const GraphSection = () => {
           dayData={paymentstDayData}
           monthData={paymentstMonthData}
           yearData={paymentstYearData}
+          extra={<Button href="/order-list">View</Button>}
         />
         <GraphChart
           title={"Users Data Chart"}
           dayData={userstDayData}
           monthData={userstMonthData}
           yearData={userstYearData}
+          extra={<Button href="/user-list">View</Button>}
         />
       </Wrapper>
     </Container>

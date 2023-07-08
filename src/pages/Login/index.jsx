@@ -4,45 +4,88 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import loginSchema from "../../validation/login";
 import { Error, LoginWrapper, StyledCard } from "../../styles/Login";
+import { useNavigate } from "react-router";
 
 const Login = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(loginSchema),
+    // resolver: yupResolver(loginSchema),
   });
 
   const onSubmit = (data) => {
     console.log(data);
+    navigate("/");
   };
 
   return (
     <LoginWrapper>
       <StyledCard title="Login">
-        <Form onFinish={handleSubmit(onSubmit)}>
-          <Form.Item>
-            <label htmlFor="email">Email</label>
-            <Input
-              placeholder="Enter email"
-              id="email"
-              {...register("email")}
-            />
-            <Error>{errors.email?.message}</Error>
+        <Form
+          name="basic"
+          labelCol={{
+            span: 8,
+          }}
+          wrapperCol={{
+            span: 16,
+          }}
+          style={{
+            maxWidth: 600,
+          }}
+          initialValues={{
+            remember: true,
+          }}
+          onFinish={onSubmit}
+          autoComplete="off"
+        >
+          <Form.Item
+            label="Email"
+            name="email"
+            rules={[
+              {
+                required: true,
+                message: "Please input your email!",
+              },
+            ]}
+          >
+            <Input />
           </Form.Item>
-          <Form.Item>
-            <label htmlFor="password">Password</label>
-            <Input
-              placeholder="Enter email"
-              id="password"
-              {...register("password")}
-            />
-            <Error>{errors.password?.message}</Error>
+
+          <Form.Item
+            label="Password"
+            name="password"
+            rules={[
+              {
+                required: true,
+                message: "Please input your password!",
+              },
+            ]}
+          >
+            <Input.Password />
           </Form.Item>
-          <Button type="primary" htmlType="submit">
-            Submit
-          </Button>
+
+          <Form.Item
+            name="remember"
+            valuePropName="checked"
+            wrapperCol={{
+              offset: 8,
+              span: 16,
+            }}
+          ></Form.Item>
+
+          <Form.Item
+            wrapperCol={{
+              offset: 8,
+              span: 16,
+            }}
+          >
+            <Button type="primary" htmlType="submit">
+              Submit
+            </Button>
+          </Form.Item>
         </Form>
       </StyledCard>
     </LoginWrapper>

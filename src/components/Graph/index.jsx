@@ -18,7 +18,7 @@ const { TabPane } = Tabs;
 const GraphChart = (props) => {
   return (
     <GraphSection>
-      <Card title={props.title} style={GraphCardStyles}>
+      <Card title={props.title} extra={props.extra} style={GraphCardStyles}>
         <Tabs defaultActiveKey="day">
           <TabPane tab="Day" key="day">
             <ChartWrap>

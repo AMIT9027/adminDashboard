@@ -1,5 +1,5 @@
 import { CloseCircleOutlined, ShoppingCartOutlined } from "@ant-design/icons";
-import { Card } from "antd";
+import { Button, Card } from "antd";
 import {
   Area,
   AreaChart,
@@ -72,7 +72,11 @@ const ChartSection = () => {
   ];
   return (
     <GraphSection>
-      <Card title="Your Profile Views" style={GraphCardStyles}>
+      <Card
+        title="History"
+        extra={<Button href="/metrics">View</Button>}
+        style={GraphCardStyles}
+      >
         <ChartWrap>
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart
