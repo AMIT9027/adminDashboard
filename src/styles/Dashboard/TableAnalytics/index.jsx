@@ -45,6 +45,12 @@ export const Follow = styled.a`
   border-radius: 7px;
   text-decoration: none;
   color: #e69222;
+<<<<<<< HEAD
+=======
+  width: 100%;
+  max-width: 60px;
+  text-align: center;
+>>>>>>> 865cbc288d66617cabb6946845bd9c49629eba5a
 
   &:hover {
     background: #e69222;
@@ -91,3 +97,38 @@ export const Designation = styled.p`
   font: normal normal 400 13px "Lexend", sans-serif;
   color: gray;
 `;
+<<<<<<< HEAD
+=======
+
+export const Button = styled.button`
+  font: normal normal 400 13px "Lexend", sans-serif;
+  color: gray;
+  height: 100%;
+  min-height: 30px;
+  width: 100%;
+  min-width: 70px;
+  padding: 5px 10px;
+  background: transparent;
+  border: 1px solid #e69222;
+  border-radius: 7px;
+  text-decoration: none;
+  color: #e69222;
+
+  &:hover {
+    background: #e69222;
+    color: white;
+  }
+`;
+
+export const ButtonWrapper = styled.div`
+  font: normal normal 400 13px "Lexend", sans-serif;
+  display: flex;
+  flex-direction:row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  height: 100%;
+  width: 100%;
+  min-width: 160px;
+`;
+>>>>>>> 865cbc288d66617cabb6946845bd9c49629eba5a
