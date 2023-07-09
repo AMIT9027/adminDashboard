@@ -125,4 +125,10 @@ export const ButtonWrapper = styled.div`
   height: 100%;
   width: 100%;
   min-width: 160px;
+  .ant-btn-default {
+    &:hover {
+      color: green;
+      border-color: green;
+    }
+  }
 `;

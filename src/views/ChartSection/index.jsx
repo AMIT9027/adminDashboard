@@ -104,8 +104,8 @@ const ChartSection = () => {
               <Area
                 type="monotone"
                 dataKey="uv"
-                stroke="#e69222"
-                fill="#fccd91"
+                stroke="green"
+                fill="lightGreen"
               />
             </AreaChart>
           </ResponsiveContainer>
