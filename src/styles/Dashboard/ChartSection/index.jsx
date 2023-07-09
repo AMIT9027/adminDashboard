@@ -43,7 +43,7 @@ export const NotificationWrap = styled.div`
 export const NotificationIcon = styled.div`
   width: 40px;
   height: 40px;
-  background-color: #e69222;
+  background-color: #00c300;
   color: white;
   border-radius: 7px;
   display: grid;

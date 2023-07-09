@@ -50,7 +50,7 @@ const TableAnalytics = () => {
                   <Designation>{item.designation}</Designation>
                 </Demographic>
               </DetailSection>
-              <Follow onClick={showModal}>Edit</Follow>
+              <Button onClick={showModal}>Edit</Button>
             </Profile>
           ))}
         </CardWrap>

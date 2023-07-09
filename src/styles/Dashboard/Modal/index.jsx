@@ -45,6 +45,7 @@ export const NameInput = styled.input`
   padding: 10px;
   border-radius: 4px;
   border: 1px solid grey;
+  outline: none;
 `;
 
 export const Password = styled(FirstName)`
@@ -100,9 +101,10 @@ export const RegButton = styled.button`
   margin-top: 10px;
   border-radius: 4px;
   cursor: pointer;
-  background-color: #1677ff;
+  background-color: green;
   color: white;
-  border: 1px solid grey;
+  border: none;
+  outline: none;
 `;
 
 export const ErrorMessage = styled.p`

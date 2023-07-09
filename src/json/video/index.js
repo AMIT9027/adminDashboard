@@ -44,9 +44,9 @@ export const VideoJson = {
 
   columns: [
     {
-      title: "",
-      dataIndex: "",
-      key: "",
+      title: "Thumbnail",
+      dataIndex: "thumbnail",
+      key: "thumbnail",
     },
     {
       title: "Title",
@@ -63,11 +63,6 @@ export const VideoJson = {
       title: "Auther",
       dataIndex: "auther",
       key: "auther",
-    },
-    {
-      title: "Thumbnail",
-      dataIndex: "thumbnail",
-      key: "thumbnail",
     },
   ],
 };

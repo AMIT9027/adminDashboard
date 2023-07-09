@@ -10,7 +10,7 @@ export const CardWrap = styled.div`
   gap: 7px;
 
   .ant-progress-bg {
-    background-color: #e69222;
+    background-color: #448644;
   }
 `;
 

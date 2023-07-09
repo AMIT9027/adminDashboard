@@ -15,13 +15,7 @@ const Dashboard = () => {
         <TableAnalytics />
         <CalendarSection />
         <ModalSection />
-        <FaqModal/>
-        {/* <Analytics /> */}
-        {/* <ChartSection /> */}
-        {/* <TableAnalytics /> */}
-        {/* <CalendarSection /> */}
-        {/* <ModalSection /> */}
-        <AddCourses />
+        <FaqModal />
       </DashboardWrap>
     </Container>
   );

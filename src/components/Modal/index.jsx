@@ -36,7 +36,7 @@ const phoneRegExp =
 
 const schema = yup.object().shape({
   email: yup.string().email().required("This field is required"),
-  password: yup.string().min(8).max(32).required("This field is required"),
+  password: yup.string().required("This field is required").min(8).max(32),
   number: yup.string().required("This field is required"),
   name: yup.string().max(40).required("This field is required"),
   address: yup.string().max(100),
@@ -101,7 +101,9 @@ const ModalSection = ({ isModalOpen, setIsModalOpen }) => {
           <PasswordInput
             {...register("password")}
             placeholder="Enter password"
+            type="password"
           />
+          <ErrorMessage>{errors.email?.message}</ErrorMessage>
         </Password>
 
         <ButtonWrapper>
