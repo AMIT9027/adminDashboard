@@ -1,17 +1,22 @@
 import React from "react";
 import { GraphSection } from "../../views/GraphSection";
 import { Link } from "react-router-dom";
-import { Button } from "antd";
+import { Button, Card } from "antd";
 import { ArrowLeftOutlined } from "@ant-design/icons";
+import { Container, DashboardWrap } from "../../styles/Dashboard";
 
 const GraphPage = () => {
   return (
-    <>
-      <Link to={"/"}>
-        <Button icon={<ArrowLeftOutlined />}>Back</Button>
-      </Link>
-      <GraphSection />
-    </>
+    <Container>
+      <DashboardWrap>
+        <Card title="Metrics">
+          <Link to={"/"}>
+            <Button icon={<ArrowLeftOutlined />}>Back</Button>
+          </Link>
+          <GraphSection />
+        </Card>
+      </DashboardWrap>
+    </Container>
   );
 };
 
