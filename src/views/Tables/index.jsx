@@ -17,23 +17,25 @@ import {
 } from "../../styles/Dashboard/TableAnalytics";
 import { CardWrap } from "../../styles/Dashboard/TableAnalytics";
 import { Link } from "react-router-dom";
+import ModalSection from "../../components/Modal";
 
 const TableAnalytics = () => {
-  const [clicked, setClick] = useState(0);
-  const handleClick = () => {
-    setClick(!clicked);
-    return clicked;
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const showModal = () => {
+    setIsModalOpen(true);
   };
 
   return (
     <TableWrap>
+      <ModalSection isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
       <Card
         title="Users"
         extra={
           <ButtonWrapper>
             {" "}
             <Button href="/user-list">View</Button>
-            <Button>Add</Button>
+            <Button onClick={showModal}>Add</Button>
           </ButtonWrapper>
         }
         style={UserStyles}
@@ -48,7 +50,7 @@ const TableAnalytics = () => {
                   <Designation>{item.designation}</Designation>
                 </Demographic>
               </DetailSection>
-              <Follow>Edit</Follow>
+              <Follow onClick={showModal}>Edit</Follow>
             </Profile>
           ))}
         </CardWrap>
