@@ -9,6 +9,7 @@ import GraphPage from "./pages/GraphPage";
 import Login from "./pages/Login";
 import OrderList from "./pages/OrderList";
 import FaqList from "./pages/FaqList";
+import WorkWith from "./pages/workWith";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/user-list" element={<UserList />} />
           <Route path="/course-list" element={<CourseList />} />
+          <Route path="/client-list" element={<WorkWith />} />
           <Route path="/course" element={<AddCourses />} />
           <Route path="/video-list" element={<VideoList />} />
           <Route path="/document-list" element={<DocumentList />} />
