@@ -12,7 +12,6 @@ export const Container = styled.div`
 export const Wrapper = styled.div`
   display: flex;
   width: 100%;
-  max-width: 1350px;
   justify-content: center;
   gap: 20px;
   @media (max-width: 1250px) {

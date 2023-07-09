@@ -8,6 +8,7 @@ const TableList = ({ title, data, columns, actions, extra }) => {
       <DashboardWrap>
         <Card title={title} extra={extra}>
           <Table
+            key={"key"}
             dataSource={data}
             columns={actions ? columns.concat(actions) : columns}
             pagination
