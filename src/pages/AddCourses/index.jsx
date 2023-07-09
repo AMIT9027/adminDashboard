@@ -1,21 +1,34 @@
-import React, { Component } from "react";
-import { useForm } from "react-hook-form";
+import React from "react";
 import {
-  Container,
-  Wrapper,
-  FormContainer,
-  Header,
-  Form,
-  Title,
-  Author,
-  Price,
-  Textarea,
+  AddCoursesForm,
+  AddCoursesWrapper,
+  Description,
+  Heading,
+  HeadingWrapper,
+  NameInput,
+  NameLabel,
+  NameWrapper,
+  Options,
+  PriceMentorWrapper,
+  PriceWrapper,
+  SelectMentor,
   Submit,
-  ContentWrapper,
-  Content,
-  Text,
-  Error,
 } from "../../styles/AddCourses";
+import { ErrorMessage } from "../../styles/Dashboard/Modal";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { Card } from "antd";
+
+const schema = yup.object().shape({
+  name: yup.string().required("This field is required"),
+  description: yup.string().max(100).required("This field is required"),
+  price: yup.string().required("This field is required"),
+  mentor: yup.string().required("This field is required"),
+  startDate: yup.string().required("This field is required"),
+  EndDate: yup.string().required("This field is required"),
+});
+
 const AddCourses = () => {
   const {
     register,
@@ -23,99 +36,70 @@ const AddCourses = () => {
     formState: { errors },
     reset,
   } = useForm({
-    mode: "onChange",
-    defaultValues: {
-      name: "",
-      mentor: "",
-      price: "",
-      discription: "",
-    },
-    reValidateMode: "onChange" | "onblur",
+    resolver: yupResolver(schema),
   });
-
   const onSubmitHandler = (data) => {
     console.log({ data });
+    reset();
   };
   return (
-    <Container>
-      <Wrapper>
-        <FormContainer>
-          <Header>Add Courses </Header>
-
-          <Form onSubmit={handleSubmit(onSubmitHandler)}>
-            <ContentWrapper>
-              <Content>
-                <Text>Title</Text>
-                <Title
-                  {...register("title", {
-                    required: {
-                      value: true,
-                      message: "Please specify Course title",
-                    },
-                    pattern: {
-                      value: /^[a-zA-Z]+$/,
-                      message: "That's not a valid title ",
-                    },
-                  })}
-                />
-                <Error>{errors.title?.message}</Error>
-              </Content>
-
-              <Content>
-                <Text>Author</Text>
-                <Author
-                  {...register("author", {
-                    required: {
-                      value: true,
-                      message: "Please specify Author name",
-                    },
-                    pattern: {
-                      value: /^[a-zA-Z]+$/,
-                      message: "That's not a valid title where I come from...",
-                    },
-                  })}
-                  name="author"
-                />
-                <Error>{errors.author?.message}</Error>
-              </Content>
-
-              <Content>
-                <Text>Price</Text>
-                <Price
-                  {...register("price", {
-                    required: {
-                      value: true,
-                      message: "Please specify Courses Price",
-                    },
-                    pattern: {
-                      value: /^(?!.*(,,|,\.|\.,|\.\.))[\d.,]+$/,
-
-                      message: "please enter price as shown in format",
-                    },
-                  })}
-                  name="price"
-                />
-                <Error>{errors.price?.message}</Error>
-              </Content>
-
-              <Content>
-                <Text>Description</Text>
-                <Textarea
-                  {...register("description", {
-                    required: {
-                      value: true,
-                      message: "Please specify description",
-                    },
-                  })}
-                />
-                <Error>{errors.description?.message}</Error>
-              </Content>
-            </ContentWrapper>
-            <Submit value="Add Course" />
-          </Form>
-        </FormContainer>
-      </Wrapper>
-    </Container>
+    <AddCoursesWrapper>
+      <Card title="Add Courses">
+        <AddCoursesForm onSubmit={handleSubmit(onSubmitHandler)}>
+          <NameWrapper>
+            <NameLabel>Name</NameLabel>
+            <NameInput
+              {...register("name")}
+              type="text"
+              placeholder="Enter your name"
+            />
+            <ErrorMessage>{errors.name?.message}</ErrorMessage>
+          </NameWrapper>
+          <NameWrapper>
+            <NameLabel>Description</NameLabel>
+            <Description {...register("description")}></Description>
+            <ErrorMessage>{errors.description?.message}</ErrorMessage>
+          </NameWrapper>
+          <PriceMentorWrapper>
+            <PriceWrapper>
+              <NameLabel>Price</NameLabel>
+              <NameInput
+                {...register("price")}
+                type="text"
+                placeholder="Price"
+              />
+              <ErrorMessage>{errors.price?.message}</ErrorMessage>
+            </PriceWrapper>
+            <PriceWrapper>
+              <NameLabel>Mentor</NameLabel>
+              <SelectMentor name="mentors" {...register("mentor")}>
+                <Options disabled selected>
+                  Select mentor
+                </Options>
+                <Options>Shreyash</Options>
+                <Options>Jitesh</Options>
+              </SelectMentor>
+              <ErrorMessage>{errors.mentor?.message}</ErrorMessage>
+            </PriceWrapper>
+          </PriceMentorWrapper>
+          <PriceMentorWrapper>
+            <PriceWrapper>
+              <NameLabel>Start date</NameLabel>
+              <NameInput {...register("startDate")} type="date" />
+              <ErrorMessage>{errors.startDate?.message}</ErrorMessage>
+            </PriceWrapper>
+            <PriceWrapper>
+              <NameLabel>End date</NameLabel>
+              <NameInput {...register("EndDate")} type="date" />
+              <ErrorMessage>{errors.EndDate?.message}</ErrorMessage>
+            </PriceWrapper>
+          </PriceMentorWrapper>
+          <HeadingWrapper>
+            <Submit>Submit</Submit>
+          </HeadingWrapper>
+        </AddCoursesForm>
+      </Card>
+    </AddCoursesWrapper>
   );
 };
 
