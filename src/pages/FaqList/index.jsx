@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from "react";
-import TableList from "../../components/Table";
-import { CourseJson } from "../../json/course";
 import { Button, Space } from "antd";
 import {
   EditOutlined,
   DeleteOutlined,
   PlusCircleOutlined,
 } from "@ant-design/icons";
+import TableList from "../../components/Table";
+import { faqJson } from "../../json/faq";
 
-const CourseList = () => {
+const FaqList = () => {
   const [data, setData] = useState();
 
   useEffect(() => {
-    setData(CourseJson.dataSource);
+    setData(faqJson.dataSource);
   }, []);
 
   const handleDelete = (id) => {
-    console.log(CourseJson.dataSource.filter((item) => item.id !== id));
-    setData(CourseJson.dataSource.filter((item) => item.id !== id));
+    console.log(faqJson.dataSource.filter((item) => item.id !== id));
+    setData(faqJson.dataSource.filter((item) => item.id !== id));
   };
 
   const Actions = [
@@ -43,17 +43,17 @@ const CourseList = () => {
 
   return (
     <TableList
-      title="Course List"
+      title="Faq List"
       data={data}
-      columns={CourseJson.columns}
+      columns={faqJson.columns}
       actions={Actions}
       extra={
         <Button icon={<PlusCircleOutlined />} href="/course">
-          Add Course
+          Add Faq
         </Button>
       }
     />
   );
 };
 
-export default CourseList;
+export default FaqList;
