@@ -9,11 +9,7 @@ import {
 } from "@ant-design/icons";
 
 const CourseList = () => {
-  const [data, setData] = useState();
-
-  useEffect(() => {
-    setData(CourseJson.dataSource);
-  }, []);
+  const [data, setData] = useState(CourseJson.dataSource);
 
   const handleDelete = (id) => {
     console.log(CourseJson.dataSource.filter((item) => item.id !== id));

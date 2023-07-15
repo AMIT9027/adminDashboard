@@ -26,8 +26,7 @@ const schema = yup.object().shape({
   courses: yup.string().required("This field is required"),
 });
 
-const CourseDetails = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+const CourseDetails = ({ isModalOpen, setIsModalOpen }) => {
   const showModal = () => {
     setIsModalOpen(true);
   };
@@ -47,7 +46,7 @@ const CourseDetails = () => {
     resolver: yupResolver(schema),
   });
   const onSubmitHandler = (data) => {
-    console.log({ data });
+    console.log({ ...data, description });
     reset();
   };
 
@@ -58,54 +57,45 @@ const CourseDetails = () => {
   };
 
   return (
-    <ModalWrapper>
-      <Button type="primary" onClick={showModal}>
-        Course Details
-      </Button>
-      <StyledModal
-        footer={null}
-        title="Course Details"
-        open={isModalOpen}
-        onOk={handleOk}
-        onCancel={handleCancel}
-      >
-        <RegForm onSubmit={handleSubmit(onSubmitHandler)}>
-          <Title>
-            <TitleLabel>Title</TitleLabel>
-            <TitleInput
-              {...register("title")}
-              placeholder="Title"
-              type="text"
+    <StyledModal
+      footer={null}
+      title="Course Details"
+      open={isModalOpen}
+      onOk={handleOk}
+      onCancel={handleCancel}
+    >
+      <RegForm onSubmit={handleSubmit(onSubmitHandler)}>
+        <Title>
+          <TitleLabel>Title</TitleLabel>
+          <TitleInput {...register("title")} placeholder="Title" type="text" />
+          <ErrorMessage>{errors.title?.message}</ErrorMessage>
+        </Title>
+        <Title>
+          <DescriptionWrapper>
+            <TitleLabel>Description</TitleLabel>
+          </DescriptionWrapper>
+          <CourseReactQuill>
+            <ReactQuill
+              value={description}
+              onChange={handleDescriptionChange}
             />
-            <ErrorMessage>{errors.title?.message}</ErrorMessage>
-          </Title>
-          <Title>
-            <DescriptionWrapper>
-              <TitleLabel>Description</TitleLabel>
-            </DescriptionWrapper>
-            <CourseReactQuill>
-              <ReactQuill
-                value={description}
-                onChange={handleDescriptionChange}
-              />
-              {/* <ErrorMessage>{errors.name?.message}</ErrorMessage> */}
-            </CourseReactQuill>
-          </Title>
-          <Title>
-            <TitleLabel>Courses</TitleLabel>
-            <SelectCourse {...register("courses")}>
-              <Options value="">Select a course</Options>
-              <Options value="Python">Python</Options>
-              <Options value="Javascript">Javascript</Options>
-            </SelectCourse>
-            <ErrorMessage>{errors.courses?.message}</ErrorMessage>
-          </Title>
-          <ButtonWrapper>
-            <SubmitButton>Submit</SubmitButton>
-          </ButtonWrapper>
-        </RegForm>
-      </StyledModal>
-    </ModalWrapper>
+            {/* <ErrorMessage>{errors.name?.message}</ErrorMessage> */}
+          </CourseReactQuill>
+        </Title>
+        <Title>
+          <TitleLabel>Courses</TitleLabel>
+          <SelectCourse {...register("courses")}>
+            <Options value="">Select a course</Options>
+            <Options value="Python">Python</Options>
+            <Options value="Javascript">Javascript</Options>
+          </SelectCourse>
+          <ErrorMessage>{errors.courses?.message}</ErrorMessage>
+        </Title>
+        <ButtonWrapper>
+          <SubmitButton>Submit</SubmitButton>
+        </ButtonWrapper>
+      </RegForm>
+    </StyledModal>
   );
 };
 export default CourseDetails;

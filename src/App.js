@@ -12,6 +12,7 @@ import Sidebar from "./components/Sidebar";
 import { AppContainer } from "./styles/Commen";
 import FaqList from "./pages/FaqList";
 import WorkWith from "./pages/workWith";
+import CourseDetailsList from "./pages/course-details-list";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/" element={<Dashboard />} />
             <Route path="/user-list" element={<UserList />} />
             <Route path="/course-list" element={<CourseList />} />
+            <Route path="/course-detail-list" element={<CourseDetailsList />} />
             <Route path="/client-list" element={<WorkWith />} />
             <Route path="/course" element={<AddCourses />} />
             <Route path="/video-list" element={<VideoList />} />
