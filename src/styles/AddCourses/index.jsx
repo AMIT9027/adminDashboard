@@ -44,6 +44,7 @@ export const NameInput = styled.input`
   background-color: white;
   border: 1px solid lightGrey;
   outline: none;
+  border-radius: 8px;
 `;
 export const Description = styled.textarea`
   padding: 8px;
@@ -51,6 +52,7 @@ export const Description = styled.textarea`
   background-color: white;
   border: 1px solid lightGrey;
   outline: none;
+  border-radius: 8px;
 `;
 
 export const PriceMentorWrapper = styled.div`
@@ -70,7 +72,7 @@ export const PriceWrapper = styled.div`
 export const SelectMentor = styled.select`
   background-color: white;
   border: 1px solid lightGrey;
-  min-height: 33px;
+  min-height: 20px;
   outline: none;
   cursor: pointer;
 `;
