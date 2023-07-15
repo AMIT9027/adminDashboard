@@ -36,7 +36,6 @@ export const Title = styled.div`
   gap: 10px;
 `;
 export const TitleLabel = styled.label`
-  font-weight: bold;
   font-size: 16px;
 `;
 
@@ -81,7 +80,7 @@ export const SelectCourse = styled.select`
   max-width: 400px;
   cursor: pointer;
   outline: none;
-`
+`;
 export const Options = styled.option``;
 
 export const SubmitButton = styled.button`

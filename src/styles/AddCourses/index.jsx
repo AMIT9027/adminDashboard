@@ -53,6 +53,7 @@ export const Description = styled.textarea`
   border: 1px solid lightGrey;
   outline: none;
   border-radius: 8px;
+  resize: none;
 `;
 
 export const PriceMentorWrapper = styled.div`
