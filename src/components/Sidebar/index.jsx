@@ -24,6 +24,7 @@ const Sidebar = () => {
         <ElementWrap to={"/"}>Dashboard</ElementWrap>
         <ElementWrap to={"/video-list"}>Videos</ElementWrap>
         <ElementWrap to={"/course-list"}>Courses</ElementWrap>
+        <ElementWrap to={"/course-detail-list"}>Course Detail</ElementWrap>
         <ElementWrap to={"/document-list"}>Documents </ElementWrap>
         <ElementWrap to={"/user-list"}>Users</ElementWrap>
       </SidebarWrap>

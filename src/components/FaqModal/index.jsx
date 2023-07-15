@@ -19,7 +19,8 @@ import {
   StyledModal,
 } from "../../styles/FaqModal";
 
-const schema = yup.object().shape({});
+const schema = yup.object().shape({
+});
 
 const FaqModal = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -75,19 +76,18 @@ const FaqModal = () => {
           </Title>
           <Title>
             <TitleLabel>Select Your Course</TitleLabel>
-            <SelectCourse name="Course" {...register("mentor")}>
-              <Options disabled selected>
-                Select a course
-              </Options>
-              <Options value="Python">Python</Options>
-              <Options value="Javascript">Javascript</Options>
-            </SelectCourse>
-            <ErrorMessage>{errors.name?.message}</ErrorMessage>
-          </Title>
-          <ButtonWrapper>
-            <SubmitButton>Submit</SubmitButton>
-          </ButtonWrapper>
-        </RegForm>
+            <SelectCourse name = "Course" {...register("mentor")}>
+                    <Options disabled selected>Select a course</Options>
+                    <Options value = "Python">Python</Options>
+                    <Options value = "Javascript">Javascript</Options>
+                </SelectCourse>
+             <ErrorMessage>{errors.name?.message}</ErrorMessage>
+  </Title>
+            <ButtonWrapper>
+              <SubmitButton>Submit</SubmitButton>
+            </ButtonWrapper>
+       </RegForm>
+       
       </StyledModal>
     </ModalWrapper>
   );

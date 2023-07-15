@@ -6,6 +6,7 @@ import { Container, DashboardWrap } from "../../styles/Dashboard";
 import ModalSection from "../../components/Modal";
 import FaqModal from "../../components/FaqModal";
 import AddCourses from "../AddCourses";
+import CourseDetails from "../../components/CourseDetails";
 const Dashboard = () => {
   return (
     <Container>

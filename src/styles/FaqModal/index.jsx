@@ -81,7 +81,7 @@ export const SelectCourse = styled.select`
   max-width: 400px;
   cursor: pointer;
   outline: none;
-`;
+`
 export const Options = styled.option``;
 
 export const SubmitButton = styled.button`
