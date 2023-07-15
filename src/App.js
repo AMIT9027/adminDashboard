@@ -19,11 +19,8 @@ function App() {
     <>
       <AppContainer>
         <Router>
-          <div>
-            <Sidebar />
-          </div>
-
           <Routes>
+<<<<<<< Updated upstream
             <Route path="/" element={<Dashboard />} />
             <Route path="/user-list" element={<UserList />} />
             <Route path="/course-list" element={<CourseList />} />
@@ -35,7 +32,31 @@ function App() {
             <Route path="/order-list" element={<OrderList />} />
             <Route path="/metrics" element={<GraphPage />} />
             <Route path="/faq-list" element={<FaqList />} />
+=======
+>>>>>>> Stashed changes
             <Route path="/login" element={<Login />} />
+            <Route
+              path="/*"
+              element={
+                <>
+                  <div>
+                    <Sidebar />
+                  </div>
+                  <Routes>
+                    <Route path="/" element={<Dashboard />} />
+                    <Route path="/user-list" element={<UserList />} />
+                    <Route path="/course-list" element={<CourseList />} />
+                    <Route path="/client-list" element={<WorkWith />} />
+                    <Route path="/course" element={<AddCourses />} />
+                    <Route path="/video-list" element={<VideoList />} />
+                    <Route path="/document-list" element={<DocumentList />} />
+                    <Route path="/order-list" element={<OrderList />} />
+                    <Route path="/metrics" element={<GraphPage />} />
+                    <Route path="/faq-list" element={<FaqList />} />
+                  </Routes>
+                </>
+              }
+            />
           </Routes>
         </Router>
       </AppContainer>

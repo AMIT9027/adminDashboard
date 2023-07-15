@@ -18,15 +18,20 @@ import { ErrorMessage } from "../../styles/Dashboard/Modal";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { Card } from "antd";
+import { Card, Select, Space } from "antd";
+
+const { Option } = Select;
 
 const schema = yup.object().shape({
-  name: yup.string().required("This field is required"),
-  description: yup.string().max(100).required("This field is required"),
-  price: yup.string().required("This field is required"),
-  mentor: yup.string().required("This field is required"),
-  startDate: yup.string().required("This field is required"),
-  EndDate: yup.string().required("This field is required"),
+  name: yup.string().required("Name is required"),
+  description: yup.string().required("Description is required"),
+  price: yup.string().required("Price is required"),
+  mentor: yup
+    .array()
+    .min(1, "At least one mentor must be selected")
+    .required("Mentor is required"),
+  startDate: yup.string().required("Start date is required"),
+  EndDate: yup.string().required("End date is required"),
 });
 
 const AddCourses = () => {
@@ -34,14 +39,14 @@ const AddCourses = () => {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm({
     resolver: yupResolver(schema),
   });
+
   const onSubmitHandler = (data) => {
-    console.log({ data });
-    reset();
+    console.log(data);
   };
+
   return (
     <AddCoursesWrapper>
       <Card title="Add Courses">
@@ -53,12 +58,16 @@ const AddCourses = () => {
               type="text"
               placeholder="Enter your name"
             />
-            <ErrorMessage>{errors.name?.message}</ErrorMessage>
+            {errors && errors.name && (
+              <ErrorMessage>{errors.name.message}</ErrorMessage>
+            )}
           </NameWrapper>
           <NameWrapper>
             <NameLabel>Description</NameLabel>
             <Description {...register("description")}></Description>
-            <ErrorMessage>{errors.description?.message}</ErrorMessage>
+            {errors && errors.description && (
+              <ErrorMessage>{errors.description.message}</ErrorMessage>
+            )}
           </NameWrapper>
           <PriceMentorWrapper>
             <PriceWrapper>
@@ -68,30 +77,55 @@ const AddCourses = () => {
                 type="text"
                 placeholder="Price"
               />
-              <ErrorMessage>{errors.price?.message}</ErrorMessage>
+              {errors && errors.price && (
+                <ErrorMessage>{errors.price.message}</ErrorMessage>
+              )}
             </PriceWrapper>
             <PriceWrapper>
               <NameLabel>Mentor</NameLabel>
-              <SelectMentor name="mentors" {...register("mentor")}>
-                <Options disabled selected>
-                  Select mentor
-                </Options>
-                <Options>Shreyash</Options>
-                <Options>Jitesh</Options>
-              </SelectMentor>
-              <ErrorMessage>{errors.mentor?.message}</ErrorMessage>
+              <Select
+                name="mentor"
+                {...register("mentor")}
+                mode="multiple"
+                style={{
+                  width: "100%",
+                }}
+                placeholder="Select your mentor"
+                onChange={(data) => console.log(data)}
+                optionLabelProp="label"
+              >
+                <Option value="Mentor 1" label="Mentor 1">
+                  <Space>Mentor 1</Space>
+                </Option>
+                <Option value="Mentor 2" label="Mentor 2">
+                  <Space>Mentor 2</Space>
+                </Option>
+                <Option value="Mentor 3" label="Mentor 3">
+                  <Space>Mentor 3</Space>
+                </Option>
+                <Option value="Mentor 4" label="Mentor 4">
+                  <Space>Mentor 4</Space>
+                </Option>
+              </Select>
+              {errors && errors.mentor && (
+                <ErrorMessage>{errors.mentor.message}</ErrorMessage>
+              )}
             </PriceWrapper>
           </PriceMentorWrapper>
           <PriceMentorWrapper>
             <PriceWrapper>
               <NameLabel>Start date</NameLabel>
               <NameInput {...register("startDate")} type="date" />
-              <ErrorMessage>{errors.startDate?.message}</ErrorMessage>
+              {errors && errors.startDate && (
+                <ErrorMessage>{errors.startDate.message}</ErrorMessage>
+              )}
             </PriceWrapper>
             <PriceWrapper>
               <NameLabel>End date</NameLabel>
               <NameInput {...register("EndDate")} type="date" />
-              <ErrorMessage>{errors.EndDate?.message}</ErrorMessage>
+              {errors && errors.EndDate && (
+                <ErrorMessage>{errors.EndDate.message}</ErrorMessage>
+              )}
             </PriceWrapper>
           </PriceMentorWrapper>
           <HeadingWrapper>
