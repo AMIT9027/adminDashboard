@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   AddCoursesForm,
   AddCoursesWrapper,
@@ -26,15 +26,12 @@ const schema = yup.object().shape({
   name: yup.string().required("Name is required"),
   description: yup.string().required("Description is required"),
   price: yup.string().required("Price is required"),
-  mentor: yup
-    .array()
-    .min(1, "At least one mentor must be selected")
-    .required("Mentor is required"),
   startDate: yup.string().required("Start date is required"),
   EndDate: yup.string().required("End date is required"),
 });
 
 const AddCourses = () => {
+  const [selectedMentor, setSelectedMentor] = useState([]);
   const {
     register,
     handleSubmit,
@@ -44,7 +41,7 @@ const AddCourses = () => {
   });
 
   const onSubmitHandler = (data) => {
-    console.log(data);
+    console.log({ ...data, mentor: selectedMentor });
   };
 
   return (
@@ -84,14 +81,12 @@ const AddCourses = () => {
             <PriceWrapper>
               <NameLabel>Mentor</NameLabel>
               <Select
-                name="mentor"
-                {...register("mentor")}
                 mode="multiple"
                 style={{
                   width: "100%",
                 }}
                 placeholder="Select your mentor"
-                onChange={(data) => console.log(data)}
+                onChange={(data) => setSelectedMentor(data)}
                 optionLabelProp="label"
               >
                 <Option value="Mentor 1" label="Mentor 1">
@@ -107,9 +102,6 @@ const AddCourses = () => {
                   <Space>Mentor 4</Space>
                 </Option>
               </Select>
-              {errors && errors.mentor && (
-                <ErrorMessage>{errors.mentor.message}</ErrorMessage>
-              )}
             </PriceWrapper>
           </PriceMentorWrapper>
           <PriceMentorWrapper>
