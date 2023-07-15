@@ -1,4 +1,4 @@
-import { Button, Modal } from "antd";
+import { Button } from "antd";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -13,16 +13,20 @@ import {
   ErrorMessage,
   DescriptionWrapper,
   SubmitButton,
-  Description,
   SelectCourse,
   Options,
   StyledModal,
 } from "../../styles/FaqModal";
+import "react-quill/dist/quill.snow.css";
+import { CourseReactQuill } from "../../styles/CourseDetails";
+import ReactQuill from "react-quill";
 
 const schema = yup.object().shape({
+  title: yup.string().required("This field is required"),
+  courses: yup.string().required("This field is required"),
 });
 
-const FaqModal = () => {
+const CourseDetails = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
     setIsModalOpen(true);
@@ -47,12 +51,20 @@ const FaqModal = () => {
     reset();
   };
 
+  const [description, setDescription] = useState("");
+
+  const handleDescriptionChange = (value) => {
+    setDescription(value);
+  };
+
   return (
     <ModalWrapper>
-      <Button onClick={showModal}>FAQ</Button>
+      <Button type="primary" onClick={showModal}>
+        Course Details
+      </Button>
       <StyledModal
         footer={null}
-        title="FAQ"
+        title="Course Details"
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}
@@ -61,35 +73,39 @@ const FaqModal = () => {
           <Title>
             <TitleLabel>Title</TitleLabel>
             <TitleInput
-              {...register("Title")}
+              {...register("title")}
               placeholder="Title"
               type="text"
             />
-            <ErrorMessage>{errors.name?.message}</ErrorMessage>
+            <ErrorMessage>{errors.title?.message}</ErrorMessage>
           </Title>
           <Title>
             <DescriptionWrapper>
               <TitleLabel>Description</TitleLabel>
             </DescriptionWrapper>
-            <Description></Description>
-            <ErrorMessage>{errors.name?.message}</ErrorMessage>
+            <CourseReactQuill>
+              <ReactQuill
+                value={description}
+                onChange={handleDescriptionChange}
+              />
+              {/* <ErrorMessage>{errors.name?.message}</ErrorMessage> */}
+            </CourseReactQuill>
           </Title>
           <Title>
-            <TitleLabel>Select Your Course</TitleLabel>
-            <SelectCourse name = "Course" {...register("mentor")}>
-                    <Options disabled selected>Select a course</Options>
-                    <Options value = "Python">Python</Options>
-                    <Options value = "Javascript">Javascript</Options>
-                </SelectCourse>
-             <ErrorMessage>{errors.name?.message}</ErrorMessage>
-  </Title>
-            <ButtonWrapper>
-              <SubmitButton>Submit</SubmitButton>
-            </ButtonWrapper>
-       </RegForm>
-       
+            <TitleLabel>Courses</TitleLabel>
+            <SelectCourse {...register("courses")}>
+              <Options value="">Select a course</Options>
+              <Options value="Python">Python</Options>
+              <Options value="Javascript">Javascript</Options>
+            </SelectCourse>
+            <ErrorMessage>{errors.courses?.message}</ErrorMessage>
+          </Title>
+          <ButtonWrapper>
+            <SubmitButton>Submit</SubmitButton>
+          </ButtonWrapper>
+        </RegForm>
       </StyledModal>
     </ModalWrapper>
   );
 };
-export default FaqModal;
+export default CourseDetails;
